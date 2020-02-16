@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube/telas/biblioteca.dart';
-import 'package:flutter_youtube/telas/emAlta.dart';
-import 'package:flutter_youtube/telas/inicio.dart';
-import 'package:flutter_youtube/telas/inscricoes.dart';
+import 'package:flutter_youtube_app/telas/biblioteca.dart';
+import 'package:flutter_youtube_app/telas/emAlta.dart';
+import 'package:flutter_youtube_app/telas/inicio.dart';
+import 'package:flutter_youtube_app/telas/inscricoes.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
