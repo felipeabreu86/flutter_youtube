@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_youtube/telas/home.dart';
 
-void main(){
+void main() {
   runApp(MaterialApp(
-    home: Text("Home Youtube"),
+    home: Home(),
     debugShowCheckedModeBanner: false,
   ));
 }
