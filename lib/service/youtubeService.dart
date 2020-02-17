@@ -1,13 +1,14 @@
 import 'package:flutter_youtube_app/service/httpService.dart';
 import 'dart:convert';
 import '../model/video.dart';
+import 'package:http/http.dart' as http;
 
 const CHAVE_YOUTUBE_API = ""; // Inserir chave valida para API do Youtube
 const ID_CANAL = "UCVHFbqXqoYvEWM1Ddxl0QDg";
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
-class Api {
-  void pesquisar(String pesquisa) async {
+class YoutubeService {
+  Future<List<Video>> pesquisar(String pesquisa) async {
     var url = URL_BASE +
         "search"
             "?part=snippet"
@@ -17,20 +18,24 @@ class Api {
             "&key=$CHAVE_YOUTUBE_API"
             "&channelId=$ID_CANAL"
             "&q=$pesquisa";
+    http.Response resposta;
+    List<Video> videos = new List<Video>();
 
-    var resposta = await HttpService.httpGet(url);
+    try {
+      resposta = await HttpService.httpGet(url);
+    } catch (e) {
+      print("YoutubeService Erro: $e");
+      throw e;
+    }
 
     if (resposta.statusCode == 200) {
       Map<String, dynamic> dadosJson = json.decode(resposta.body);
-      List<Video> videos = dadosJson["items"].map<Video>((map) {
+      videos = dadosJson["items"].map<Video>((map) {
         return Video.fromMap(map);
       }).toList();
-
-      for (var video in videos) {
-        print(video.titulo);
-      }
     } else {
-      print("erro");
+      print("YoutubeService Statuscode: ${resposta.statusCode}");
     }
+    return videos;
   }
 }

@@ -49,7 +49,7 @@ class Video {
       titulo: map['snippet']['title'],
       descricao: map['snippet']['description'],
       imagem: map['snippet']['thumbnails']['high']['url'],
-      canal: map['snippet']['channelId'],
+      canal: map['snippet']['channelTitle'],
     );
   }
 
