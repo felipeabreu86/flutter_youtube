@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube_app/CustomSearchDelegate.dart';
+import 'package:flutter_youtube_app/customs/CustomSearchDelegate.dart';
 import 'package:flutter_youtube_app/telas/biblioteca.dart';
 import 'package:flutter_youtube_app/telas/emAlta.dart';
 import 'package:flutter_youtube_app/telas/inicio.dart';

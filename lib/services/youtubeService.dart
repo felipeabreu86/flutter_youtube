@@ -1,4 +1,4 @@
-import 'package:flutter_youtube_app/service/httpService.dart';
+import 'package:flutter_youtube_app/services/httpService.dart';
 import 'dart:convert';
 import '../model/video.dart';
 import 'package:http/http.dart' as http;
