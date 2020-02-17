@@ -45,11 +45,11 @@ class Video {
     if (map == null) return null;
   
     return Video(
-      id: map['id'],
-      titulo: map['titulo'],
-      descricao: map['descricao'],
-      imagem: map['imagem'],
-      canal: map['canal'],
+      id: map['id']['videoId'],
+      titulo: map['snippet']['title'],
+      descricao: map['snippet']['description'],
+      imagem: map['snippet']['thumbnails']['high']['url'],
+      canal: map['snippet']['channelId'],
     );
   }
 

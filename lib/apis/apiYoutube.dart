@@ -1,8 +1,8 @@
 import 'package:flutter_youtube_app/service/httpService.dart';
 import 'dart:convert';
+import '../model/video.dart';
 
-const CHAVE_YOUTUBE_API =
-    "AIzaSyCytBXQof8wIgMtfnxQu-cA-EMP30qs_kY"; // Inserir chave valida para API do Youtube
+const CHAVE_YOUTUBE_API = ""; // Inserir chave valida para API do Youtube
 const ID_CANAL = "UCVHFbqXqoYvEWM1Ddxl0QDg";
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
@@ -22,7 +22,13 @@ class Api {
 
     if (resposta.statusCode == 200) {
       Map<String, dynamic> dadosJson = json.decode(resposta.body);
-      print("resultado: $dadosJson");
+      List<Video> videos = dadosJson["items"].map<Video>((map) {
+        return Video.fromMap(map);
+      }).toList();
+
+      for (var video in videos) {
+        print(video.titulo);
+      }
     } else {
       print("erro");
     }
