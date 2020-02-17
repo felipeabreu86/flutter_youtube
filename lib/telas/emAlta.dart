@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class EmAlta extends StatefulWidget {
-  EmAlta({Key key}) : super(key: key);
-
+  EmAlta({Key key, this.query}) : super(key: key);
+  final String query;
   @override
   _EmAltaState createState() => _EmAltaState();
 }

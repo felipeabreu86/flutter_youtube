@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Inscricoes extends StatefulWidget {
-  Inscricoes({Key key}) : super(key: key);
-
+  Inscricoes({Key key, this.query}) : super(key: key);
+  final String query;
   @override
   _InscricoesState createState() => _InscricoesState();
 }

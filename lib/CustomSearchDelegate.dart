@@ -1,25 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube_app/service/youtubeService.dart';
-import '../model/video.dart';
+import 'model/video.dart';
 
-class Inicio extends StatefulWidget {
-  Inicio({Key key, this.query}) : super(key: key);
-  final String query;
+class CustomSearchDelegate extends SearchDelegate<String> {
+  String ultimaPesquisa = "";
 
   @override
-  _InicioState createState() => _InicioState();
-}
-
-class _InicioState extends State<Inicio> {
-  _listarVideos(String pesquisa) {
-    YoutubeService apiYoutube = YoutubeService();
-    return apiYoutube.pesquisar(pesquisa);
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = "";
+        },
+      ),
+    ];
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.arrow_back),
+      onPressed: () {
+        close(context, "");
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    _listarVideos() {
+      YoutubeService apiYoutube = YoutubeService();
+      if (query.isNotEmpty) {
+        return apiYoutube.pesquisar(query);
+      }
+      return List<Video>();
+    }
+
     return FutureBuilder<List<Video>>(
-      future: _listarVideos(widget.query),
+      future: _listarVideos(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
@@ -76,5 +95,31 @@ class _InicioState extends State<Inicio> {
         return null;
       },
     );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    //return Container();
+    /// Sugestões estáticas para estudo do funcionamento das sugestões
+    List<String> lista = List();
+    if (query.isNotEmpty) {
+      lista = ["Android", "Android navegação", "IOS", "Jogos"]
+          .where((texto) => texto.toLowerCase().startsWith(query.toLowerCase()))
+          .toList();
+      return ListView.builder(
+          itemCount: lista.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: () {
+                close(context, lista[index]);
+              },
+              title: Text(lista[index]),
+            );
+          });
+    } else {
+      return Center(
+        child: Text("Nenhum resultado para a pesquisa!"),
+      );
+    }
   }
 }

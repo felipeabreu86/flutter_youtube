@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Biblioteca extends StatefulWidget {
-  Biblioteca({Key key}) : super(key: key);
-
+  Biblioteca({Key key, this.query}) : super(key: key);
+  final String query;
   @override
   _BibliotecaState createState() => _BibliotecaState();
 }

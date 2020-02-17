@@ -16,8 +16,9 @@ class YoutubeService {
             "&maxResults=20"
             "&order=date"
             "&key=$CHAVE_YOUTUBE_API"
-            "&channelId=$ID_CANAL"
+            //"&channelId=$ID_CANAL"
             "&q=$pesquisa";
+
     http.Response resposta;
     List<Video> videos = new List<Video>();
 

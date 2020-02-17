@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_youtube_app/CustomSearchDelegate.dart';
 import 'package:flutter_youtube_app/telas/biblioteca.dart';
 import 'package:flutter_youtube_app/telas/emAlta.dart';
 import 'package:flutter_youtube_app/telas/inicio.dart';
@@ -13,16 +14,29 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _indiceAtual = 0;
+  String _query = "";
 
   @override
   Widget build(BuildContext context) {
-
-    List<Widget> telas = [
-      Inicio(),
-      EmAlta(),
-      Inscricoes(),
-      Biblioteca(),
-    ];
+    _navegacao(int tela) {
+      String pesquisa = _query;
+      _query = "";
+      switch (0) {
+        case 0:
+          return Inicio(query: pesquisa);
+          break;
+        case 1:
+          return EmAlta(query: pesquisa);
+          break;
+        case 2:
+          return Inscricoes(query: pesquisa);
+          break;
+        case 3:
+          return Biblioteca(query: pesquisa);
+          break;
+      }
+      return null;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -37,29 +51,17 @@ class _HomeState extends State<Home> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.videocam),
-            onPressed: () {
-              //TODO: Criar ação videocam
-              print("acao videocam");
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              //TODO: Criar ação search
-              print("acao search");
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.account_circle),
-            onPressed: () {
-              //TODO: Criar ação account circle
-              print("acao account_circle");
+              showSearch(
+                context: this.context,
+                delegate: CustomSearchDelegate(),
+              );
             },
           ),
         ],
       ),
-      body: telas[_indiceAtual],
+      body: _navegacao(_indiceAtual),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: (index) {
