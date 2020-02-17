@@ -4,8 +4,7 @@ import 'package:flutter_youtube_app/services/youtubeService.dart';
 import '../model/video.dart';
 
 class Inicio extends StatefulWidget {
-  Inicio({Key key, this.query}) : super(key: key);
-  final String query;
+  Inicio({Key key}) : super(key: key);
 
   @override
   _InicioState createState() => _InicioState();
@@ -44,7 +43,7 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     print("Chamado 3 - build");
     return FutureBuilder<List<Video>>(
-      future: _listarVideos(widget.query),
+      future: _listarVideos(""),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:

@@ -14,29 +14,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _indiceAtual = 0;
-  String _query = "";
 
   @override
   Widget build(BuildContext context) {
-    _navegacao(int tela) {
-      String pesquisa = _query;
-      _query = "";
-      switch (0) {
-        case 0:
-          return Inicio(query: pesquisa);
-          break;
-        case 1:
-          return EmAlta(query: pesquisa);
-          break;
-        case 2:
-          return Inscricoes(query: pesquisa);
-          break;
-        case 3:
-          return Biblioteca(query: pesquisa);
-          break;
-      }
-      return null;
-    }
+    List<Widget> telas = [
+      Inicio(),
+      EmAlta(),
+      Inscricoes(),
+      Biblioteca()
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -61,7 +47,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: _navegacao(_indiceAtual),
+      body: telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: (index) {
