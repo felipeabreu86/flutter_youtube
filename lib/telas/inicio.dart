@@ -65,9 +65,6 @@ class _InicioState extends State<Inicio> {
             }
             break;
           case ConnectionState.none:
-            return Center(
-              child: Text("Sem conexão com a Internet."),
-            );
             break;
           case ConnectionState.waiting:
             return Center(child: CircularProgressIndicator());

@@ -46,7 +46,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
           case ConnectionState.done:
             if (snapshot.hasError) {
               return Center(
-                child: Text("Erro ao realizar a requisição."),
+                child: Text("Erro ao realizar a requisição!"),
               );
             }
             if (snapshot.hasData) {
@@ -79,14 +79,11 @@ class CustomSearchDelegate extends SearchDelegate<String> {
               );
             } else {
               return Center(
-                child: Text("Nenhum resultado a ser exibido."),
+                child: Text("Nenhum resultado para a pesquisa! 2"),
               );
             }
             break;
           case ConnectionState.none:
-            return Center(
-              child: Text("Sem conexão com a Internet."),
-            );
             break;
           case ConnectionState.waiting:
             return Center(child: CircularProgressIndicator());
@@ -100,7 +97,8 @@ class CustomSearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     //return Container();
-    /// Sugestões estáticas para estudo do funcionamento das sugestões
+
+    /// Implementação estática para estudo do funcionamento das sugestões
     List<String> lista = List();
     if (query.isNotEmpty) {
       lista = ["Android", "Android navegação", "IOS", "Jogos"]
@@ -118,7 +116,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
           });
     } else {
       return Center(
-        child: Text("Nenhum resultado para a pesquisa!"),
+        child: Text("Nenhum resultado para a pesquisa! 1"),
       );
     }
   }
