@@ -12,8 +12,7 @@ class Inicio extends StatefulWidget {
 
 class _InicioState extends State<Inicio> {
   _listarVideos(String pesquisa) {
-    YoutubeService apiYoutube = YoutubeService();
-    return apiYoutube.pesquisar(pesquisa);
+    return YoutubeService.pesquisar(pesquisa);
   }
 
   @override

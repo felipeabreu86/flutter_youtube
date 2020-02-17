@@ -29,12 +29,11 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    _listarVideos() {
-      YoutubeService apiYoutube = YoutubeService();
+    _listarVideos() async {
       if (query.isNotEmpty) {
-        return apiYoutube.pesquisar(query);
+        return YoutubeService.pesquisar(query);
       }
-      return List<Video>();
+      return null;
     }
 
     return FutureBuilder<List<Video>>(
@@ -79,7 +78,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
               );
             } else {
               return Center(
-                child: Text("Nenhum resultado para a pesquisa! 2"),
+                child: Text("Nenhum resultado para a pesquisa!"),
               );
             }
             break;
@@ -109,14 +108,15 @@ class CustomSearchDelegate extends SearchDelegate<String> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
-                close(context, lista[index]);
+                //close(context, lista[index]);
+                query = lista[index];
               },
               title: Text(lista[index]),
             );
           });
     } else {
       return Center(
-        child: Text("Nenhum resultado para a pesquisa! 1"),
+        child: Text("Nenhum resultado para a pesquisa!"),
       );
     }
   }

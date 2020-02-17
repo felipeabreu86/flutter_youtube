@@ -7,7 +7,7 @@ const CHAVE_YOUTUBE_API = ""; // Inserir chave valida para API do Youtube
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
 class YoutubeService {
-  Future<List<Video>> pesquisar(String pesquisa) async {
+  static Future<List<Video>> pesquisar(String pesquisa) async {
     var url = URL_BASE +
         "search"
             "?part=snippet"
@@ -35,6 +35,7 @@ class YoutubeService {
     } else {
       print("YoutubeService Statuscode: ${resposta.statusCode}");
     }
+
     return videos;
   }
 }
