@@ -40,7 +40,9 @@ class _HomeState extends State<Home> {
         initialData: widget.bloc.recuperarTelaInicial(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Text('Erro ao carregar a tela!');
+            return Center(
+              child: Text('Erro ao carregar a tela!'),
+            );
           } else {
             return snapshot.data;
           }

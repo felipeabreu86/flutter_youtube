@@ -28,15 +28,8 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    _listarVideos() async {
-      if (query.isNotEmpty) {
-        return YoutubeService.pesquisar(query);
-      }
-      return null;
-    }
-
     return FutureBuilder<List<Video>>(
-      future: _listarVideos(),
+      future: YoutubeService.pesquisar(query),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
@@ -44,14 +37,13 @@ class CustomSearchDelegate extends SearchDelegate<String> {
           case ConnectionState.done:
             if (snapshot.hasError) {
               return Center(
-                child: Text("Erro ao realizar a requisição."),
+                child: Text("Erro ao realizar a requisição!"),
               );
             }
             if (snapshot.hasData) {
               return ListView.separated(
                   itemBuilder: (context, index) {
-                    List<Video> videos = snapshot.data;
-                    Video video = videos[index];
+                    Video video = snapshot.data[index];
 
                     return GestureDetector(
                       onTap: () {
@@ -59,7 +51,7 @@ class CustomSearchDelegate extends SearchDelegate<String> {
                           apiKey: CHAVE_YOUTUBE_API,
                           videoId: video.id,
                           autoPlay: true,
-                          fullScreen: true,
+                          fullScreen: false,
                         );
                       },
                       child: Column(
