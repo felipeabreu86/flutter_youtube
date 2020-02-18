@@ -51,7 +51,7 @@ class _InicioState extends State<Inicio> {
           case ConnectionState.done:
             if (snapshot.hasError) {
               return Center(
-                child: Text("Erro ao realizar a requisição."),
+                child: Text("Erro ao realizar a requisição!"),
               );
             }
             if (snapshot.hasData) {
