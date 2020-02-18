@@ -97,8 +97,6 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    //return Container();
-
     /// Implementação estática para estudo do funcionamento das sugestões
     List<String> lista = List();
     if (query.isNotEmpty) {
@@ -110,7 +108,6 @@ class CustomSearchDelegate extends SearchDelegate<String> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
-                //close(context, lista[index]);
                 query = lista[index];
               },
               title: Text(lista[index]),
