@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 // !Inserir chave valida para API do Youtube
-const CHAVE_YOUTUBE_API = "AIzaSyCytBXQof8wIgMtfnxQu-cA-EMP30qs_kY"; 
+const CHAVE_YOUTUBE_API = ""; 
 
 class YoutubeService {
   static Future<List<Video>> pesquisar(String pesquisa) async {
