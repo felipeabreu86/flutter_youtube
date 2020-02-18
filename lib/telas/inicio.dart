@@ -11,10 +11,6 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
-  _listarVideos(String pesquisa) {
-    return YoutubeService.pesquisar(pesquisa);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -43,7 +39,7 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     print("Chamado 3 - build");
     return FutureBuilder<List<Video>>(
-      future: _listarVideos(""),
+      future: YoutubeService.pesquisar(""),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.active:
@@ -57,8 +53,7 @@ class _InicioState extends State<Inicio> {
             if (snapshot.hasData) {
               return ListView.separated(
                   itemBuilder: (context, index) {
-                    List<Video> videos = snapshot.data;
-                    Video video = videos[index];
+                    Video video = snapshot.data[index];
 
                     return GestureDetector(
                       onTap: () {
