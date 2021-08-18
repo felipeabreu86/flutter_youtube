@@ -5,8 +5,10 @@ import 'Telas/home.dart';
 Future main() async {
   await dotenv.load(fileName: ".env");
 
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Home(),
-  ));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    ),
+  );
 }

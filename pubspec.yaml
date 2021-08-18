@@ -1,5 +1,5 @@
 name: flutter_youtube
-description: A new Flutter project.
+description: A aplicação consiste em replicar o layout e implementar o funcionamento básico do YouTube por meio da API do Google..
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
