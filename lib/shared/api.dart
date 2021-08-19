@@ -1,3 +1,4 @@
+import 'package:flutter_youtube/model/video.dart';
 import 'package:flutter_youtube/shared/config.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:http/http.dart' as http;
@@ -18,9 +19,13 @@ class Api {
     );
     if (response.statusCode == 200) {
       Map<String, dynamic> dadosJson = json.decode(response.body);
-      print(dadosJson);
+      List<Video> videos = dadosJson["items"].map<Video>(
+        (map) {
+          return Video.fromJson(map);
+        },
+      ).toList();
     } else {
-      print("erro");
+      print("Erro: ${response.statusCode}");
     }
   }
 }

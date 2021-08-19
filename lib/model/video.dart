@@ -43,17 +43,17 @@ class Video {
 
   factory Video.fromMap(Map<String, dynamic> map) {
     return Video(
-      id: map['id'],
-      titulo: map['titulo'],
-      imagem: map['imagem'],
-      canal: map['canal'],
-      descricao: map['descricao'],
+      id: map['id']['videoId'],
+      titulo: map['snippet']['title'],
+      imagem: map['snippet']['thumbnails']['high']['url'],
+      canal: map['snippet']['channelId'],
+      descricao: map['snippet']['description'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Video.fromJson(String source) => Video.fromMap(json.decode(source));
+  factory Video.fromJson(Map<String, dynamic> source) => Video.fromMap(source);
 
   @override
   String toString() {
