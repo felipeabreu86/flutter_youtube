@@ -49,7 +49,10 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: _telas[_indiceAtual],
+      body: Container(
+        padding: EdgeInsets.all(15),
+        child: _telas[_indiceAtual],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: (indice) {

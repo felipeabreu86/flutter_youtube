@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Api {
-  pesquisar(String pesquisa) async {
+  Future<List<Video>> pesquisar(String pesquisa) async {
+    List<Video> videos = [];
     http.Response response = await http.get(
       Config.urlBase +
           "search"
@@ -19,7 +20,7 @@ class Api {
     );
     if (response.statusCode == 200) {
       Map<String, dynamic> dadosJson = json.decode(response.body);
-      List<Video> videos = dadosJson["items"].map<Video>(
+      videos = dadosJson["items"].map<Video>(
         (map) {
           return Video.fromJson(map);
         },
@@ -27,5 +28,6 @@ class Api {
     } else {
       print("Erro: ${response.statusCode}");
     }
+    return videos;
   }
 }
