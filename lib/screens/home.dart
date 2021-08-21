@@ -3,6 +3,7 @@ import 'package:flutter_youtube/screens/biblioteca.dart';
 import 'package:flutter_youtube/screens/em_alta.dart';
 import 'package:flutter_youtube/screens/inicio.dart';
 import 'package:flutter_youtube/screens/inscricoes.dart';
+import 'package:flutter_youtube/shared/customSearchDelegate.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -35,17 +36,25 @@ class _HomeState extends State<Home> {
           height: 22,
         ),
         actions: [
+          /*
           IconButton(
             onPressed: null,
             icon: Icon(Icons.videocam),
           ),
           IconButton(
             onPressed: null,
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: null,
             icon: Icon(Icons.account_circle),
+          ),
+          */
+          IconButton(
+            onPressed: () async {
+              String? res = await showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+              print(res ?? "Vazio");
+            },
+            icon: Icon(Icons.search),
           ),
         ],
       ),
