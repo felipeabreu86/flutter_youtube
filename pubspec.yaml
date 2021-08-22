@@ -31,7 +31,6 @@ dependencies:
   flutter_dotenv: ^5.0.2
   http: ^0.13.3
   youtube_player_flutter: ^8.0.0
-  flutter_inappwebview: ^5.3.2
 
 dev_dependencies:
   flutter_test:
