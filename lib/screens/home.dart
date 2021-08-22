@@ -14,11 +14,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _indiceAtual = 0;
+  String _pesquisa = "";
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _telas = [
-      Inicio(),
+      Inicio(_pesquisa),
       EmAlta(),
       Inscricoes(),
       Biblioteca(),
@@ -36,23 +37,15 @@ class _HomeState extends State<Home> {
           height: 22,
         ),
         actions: [
-          /*
-          IconButton(
-            onPressed: null,
-            icon: Icon(Icons.videocam),
-          ),
-          IconButton(
-            onPressed: null,
-            icon: Icon(Icons.account_circle),
-          ),
-          */
           IconButton(
             onPressed: () async {
               String? res = await showSearch(
                 context: context,
                 delegate: CustomSearchDelegate(),
               );
-              print(res ?? "Vazio");
+              setState(() {
+                _pesquisa = res ?? "";
+              });
             },
             icon: Icon(Icons.search),
           ),
