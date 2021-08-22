@@ -14,7 +14,7 @@ A aplicação consiste em replicar o layout e implementar o funcionamento básic
 
 ![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg)
 
-<img src="https://github.com/felipeabreu86/flutter_jokenpo/raw/main/assets/screens/mobile3.png" alt="Mobile 3" style="max-width:60%;">
+<img src="https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg" alt="Mobile 3" style="max-width:60%;">
 
 # Tecnologias Utilizadas
 - [flutter](https://flutter.dev/ "flutter")
