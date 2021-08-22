@@ -8,26 +8,28 @@
 A aplicação consiste em replicar o layout e implementar o funcionamento básico do YouTube por meio da API do Google.
 
 ## Layout Mobile
-![Mobile 1](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile1.png)
-
-## Layout Web
-![Web 1](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/web1.png)
+![Mobile 1](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile1.jpeg)
+![Mobile 2](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile2.jpeg)
+![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg)
 
 # Tecnologias Utilizadas
 - [flutter](https://flutter.dev/ "flutter")
 - [dart](https://dart.dev "dart")
 - [http](https://pub.dev/packages/http "http")
-- [ext_video_player](https://pub.dev/packages/ext_video_player "ext_video_player")
+- [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter "youtube_player_flutter")
 - [flutter_dotenv](https://pub.dev/packages/flutter_dotenv "flutter_dotenv")
 
 # Funcionalidades
 - Tela Home do YouTube
-- Pesquisa e exibição de vídeos
+- Pesquisa e exibição de vídeos utilizando Api do Google para o YouTube
 
 # Como Executar o Projeto
 
 ## Flutter
-Pré-requisitos: Flutter ([como instalar](https://flutter.dev/docs/get-started/install "Como instalar o Flutter"))
+Pré-requisitos: 
+- Flutter ([como instalar](https://flutter.dev/docs/get-started/install "Como instalar o Flutter"))
+- Android: minSdkVersion 17 (Android 4.2) e suporte para o androidx
+- iOS: --ios-language swift, Xcode version >= 11
 
 ```bash
 # clonar repositório
