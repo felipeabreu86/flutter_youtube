@@ -12,7 +12,7 @@ A aplicação consiste em replicar o layout e implementar o funcionamento básic
 
 ![Mobile 2](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile2.jpeg?v=4&s=100)
 
-![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg|width=100px)
+![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg | width=100px)
 
 # Tecnologias Utilizadas
 - [flutter](https://flutter.dev/ "flutter")
