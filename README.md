@@ -8,9 +8,11 @@
 A aplicação consiste em replicar o layout e implementar o funcionamento básico do YouTube por meio da API do Google.
 
 ## Layout Mobile
-![Mobile 1](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile1.jpeg)
-![Mobile 2](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile2.jpeg)
-![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg)
+![Mobile 1](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile1.jpeg | width=100)
+
+![Mobile 2](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile2.jpeg | width=100)
+
+![Mobile 3](https://github.com/felipeabreu86/flutter_youtube/blob/main/assets/screens/mobile3.jpeg | width=100)
 
 # Tecnologias Utilizadas
 - [flutter](https://flutter.dev/ "flutter")
