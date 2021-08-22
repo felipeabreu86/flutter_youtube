@@ -27,8 +27,7 @@ A aplicação consiste em replicar o layout e implementar o funcionamento básic
 
 # Como Executar o Projeto
 
-## Flutter
-Pré-requisitos: 
+## Pré-requisitos
 - Flutter ([como instalar](https://flutter.dev/docs/get-started/install "Como instalar o Flutter"))
 - Android: minSdkVersion 17 (Android 4.2) e suporte para o androidx
 - iOS: --ios-language swift, Xcode version >= 11
